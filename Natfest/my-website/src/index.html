@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/Natfest-clear-header.png" alt="Natfest Header" class="header-image">
+        <nav>
+            <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <button class="nav-toggle" aria-label="Open navigation"></button>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="secondary-header">
+        <h1>Natfest 2026</h1>
+    </div>
+
+    <main>
+        <div class="countdown-container">
+            <h2>Countdown to Natfest 2026</h2>
+            <div id="countdown">
+                <span id="days">0</span> days 
+                <span id="hours">0</span> hours 
+                <span id="minutes">0</span> minutes 
+                <span id="seconds">0</span> seconds
+            </div>
+        </div>
+        <div class="center-image">
+            <img src="images/Natfest.jpg" alt="Natfest poster">
+        </div>
+        <section>
+            <h2>About Our Website</h2>
+            <p>This is a brief introduction to what our website is about. We aim to provide valuable information and resources to our users.</p>
+        </section>
+        <section>
+            <h2>Latest Updates</h2>
+            <p>Stay tuned for the latest news and updates from our team!</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Natfest 2026 | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+    <script src="js/main.js"></script>
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const sidebarNav = document.querySelector('.sidebar-nav');
+navToggle.addEventListener('click', function() {
+    sidebarNav.classList.toggle('open');
+    navToggle.classList.toggle('open');
+});
+</script>
+
+<script>
+function updateCountdown() {
+    const eventDate = new Date('2026-06-27T12:00:00');
+    const now = new Date();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = "It's Natfest time!";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+</body>
+</html>

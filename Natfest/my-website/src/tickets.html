@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/Natfest-clear-header.png" alt="Natfest Header" class="header-image">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="lineup.html">Lineup</a></li>
+                <li><a href="tickets.html" class="active">Tickets</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <button class="nav-toggle" aria-label="Open navigation"></button>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="tickets.html" class="active">Tickets</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="secondary-header">
+        <h1>Tickets and Pricing</h1>
+    </div>
+    <main>
+        <section>
+            <h2>Ticket options</h2>
+            <p>
+                2026 Pricing coming soon!
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Website | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+    <script src="js/main.js"></script>
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar-nav').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

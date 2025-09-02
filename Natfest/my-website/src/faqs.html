@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/Natfest-clear-header.png" alt="Natfest Header" class="header-image">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="faqs.html" class="active">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    </header>
+    <button class="nav-toggle" aria-label="Open navigation"></button>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="faqs.html" class="active">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="secondary-header">
+        <h1>Frequently asked questions</h1>
+    </div>
+
+    <main>
+        <section class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+            <span>What date is Natfest 2026?</span>
+            <span class="chevron">&#x25BC;</span>
+        </button>
+            <div class="faq-answer" hidden>
+                Natfest 2026 will take place on Saturday 27th June 2026.
+            </div>
+        </section>
+
+        <section class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+            <span>Who is on the Natfest Line up?</span>
+            <span class="chevron">&#x25BC;</span>
+        </button>
+            <div class="faq-answer" hidden>
+                Natfest 2026 line up has not yet been announced.
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; Natfest 2026 | <a href="privacy.html">Legal & Privacy</a></p>
+    </footer>
+    <script src="js/main.js"></script>
+        <script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+        document.querySelector('.sidebar-nav').classList.toggle('open');
+    });
+    </script>
+
+    <script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+        const answer = this.nextElementSibling;
+        if (expanded) {
+            answer.hidden = true;
+        } else {
+            answer.hidden = false;
+        }
+    });
+});
+</script>
+</body>
+</html>
