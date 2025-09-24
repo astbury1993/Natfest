@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #E9CC86;
@@ -75,6 +75,36 @@ footer {
     bottom: 0;
     width: 100%;
     margin-top: 1rem;
+}
+
+.main-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.main-banner img {
+    width: 100%;
+    max-width: 1200px; /* Adjust to your site's content width */
+    height: auto;
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Optional: subtle shadow */
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px; /* Optional: match your site width */
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.loros-footer-img {
+    height: 100px; /* Adjust as needed */
+    width: auto;
+    display: block;
 }
 
 h2 {
