@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Partners</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="my-website/src/images/Natfest-clear-header.png" alt="Natfest Header" class="header-image">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="partners.html" class="active">Our Partners</a></li>
+        </ul>
+    </nav>
+    </header>
+    <button class="nav-toggle" aria-label="Open navigation"></button>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" >About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="partners.html" class="active">Our Partners</a></li>
+        </ul>
+    </nav>
+
+    <div class="secondary-header">
+        <h1>Our Partners</h1>
+        <div class="countdown-container">
+            <div id="countdown">
+                <span id="days">0</span> days 
+                <span id="hours">0</span> hours 
+                <span id="minutes">0</span> minutes 
+                <span id="seconds">0</span> seconds
+            </div>
+        </div>
+    </div>
+
+<main>
+
+    <section id="our-partners">
+  <h2>Our Partners</h2>
+  <p>
+    Behind every unforgettable moment at our charity fundraising music festival stands a powerful partnership rooted in purpose and generosity. We’re proud to support and be supported by two incredible organisations whose commitment makes this event possible.
+  </p>
+
+  <h3>🎗 LOROS Hospice</h3>
+  <p>
+    At the heart of our mission is LOROS, a local charity providing compassionate care and support to terminally ill patients and their families across Leicestershire and Rutland. Every note played and every pound raised helps fund their vital work, bringing comfort and dignity when it’s needed most.
+  </p>
+        
+<div class="main-banner">
+    <a href="https://www.loros.co.uk/" target="_blank" rel="noopener noreferrer">
+    <img src="my-website/src/images/LOROS_Event.png" alt="LOROS Event in support banner">
+    </a>
+</div>
+
+  <h3>🏞 Alpha Power Cleaners</h3>
+  <p>
+    Our festival wouldn’t have a stage to stand on without the unwavering support of Chris Freeman and Alpha Power Cleaners. Not only do they sponsor the event, they also host it on their land—transforming their grounds into a vibrant celebration of music, community, and giving.
+  </p>
+
+  <p>
+    Together, LOROS and Alpha Power Cleaners help us turn sound into support, and rhythm into hope. We’re honoured to have them by our side.
+  </p>
+
+  <div class="main-banner">
+    <a href="https://www.alphapowercleaners.co.uk/" target="_blank" rel="noopener noreferrer">
+    <img src="my-website/src/images/Alpha.png" alt="Alpha Power Cleaners banner">
+    </a>
+</div>
+</section>
+
+  
+    </main>
+
+    <footer>
+        <div class="footer-content">
+        <p>&copy; Natfest 2026 | <a href="privacy.html">Privacy Policy</a></p>
+        <a href="https://www.loros.co.uk/" target="_blank" rel="noopener noreferrer">
+        <img src="my-website/src/images/LOROS_Charity.jpg" alt="LOROS Charity" class="loros-footer-img">
+        </a>
+        </div>
+    </footer>
+    <script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+        document.querySelector('.sidebar-nav').classList.toggle('open');
+    });
+    </script>
+
+    <script>
+function updateCountdown() {
+    const eventDate = new Date('2026-06-27T12:00:00');
+    const now = new Date();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = "It's Natfest time!";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+</body>
+</html>

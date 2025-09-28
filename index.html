@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="my-website/src/images/Natfest-clear-header.png" alt="Natfest Header" class="header-image">
+        <nav>
+            <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+            </ul>
+        </nav>
+    </header>
+    <button class="nav-toggle" aria-label="Open navigation"></button>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+        </ul>
+    </nav>
+
+    <div class="secondary-header">
+        <h1>Natfest 2026</h1>
+        <div class="countdown-container">
+            <div id="countdown">
+                <span id="days">0</span> days 
+                <span id="hours">0</span> hours 
+                <span id="minutes">0</span> minutes 
+                <span id="seconds">0</span> seconds
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <h2>Natfest 2026 is coming!</h2>
+        <p>Back for it's second year, Natfest returns for 2026!</p> 
+        <p>Join us on Saturday 27th June 2026 for a day of incredible music, food, and fun at Natfest, a charity music festival in memory of Natalie Leader, raising funds for LOROS.</p>
+
+            
+
+        <div class="center-image">
+            <img src="my-website/src/images/Natfest-Drone.jpg" alt="Natfest poster">
+        </div>
+        <section>
+            <h2>The Reason Behind Natfest, by Kellen</h2>
+            <p>In 2023, our Mum, Natalie, sadly passed away at LOROS after battling lung cancer. The day before her 60th birthday.
+This was the most horrendous day of mine, my sisters (Gemma & Charlotte) and my dad’s life.</p>
+            <p>Our only comfort is knowing how well she was cared for in those last few days. The team at LOROS were nothing short of incredible. Completely attentive to her needs and they went above and beyond to care for not only her, but all of us too.</p>
+            <p>I think mum would think we’ve lost our marbles arranging a festival in her honour 😅 but her passion was music, having been to many festivals herself and being a huge lover of bands in general.</p>
+            <p>Natfest honours not only mum, but everyone who has been under the care of LOROS and I’m sure many of you will have had friends and family need them.</p> 
+            <p>We really hope that by raising money we can make a real difference to families that unfortunately need the help of LOROS in the future. </p>
+            <p>❤️💛🩷💚🧡💙🩵</p>
+        </section>
+        <section>
+            <hr />
+            <h2>Check out what happened last year!</h2>
+            <p style="text-align:center; margin-top: 24px;">
+    <a href="gallery.html" class="view-gallery-link">View our Gallery</a>
+</p>
+
+        <hr />
+
+        </section>
+        <section>
+            <h2>Our History</h2>
+            <p>Founded in 2024, we successfully delivered our first Natfest in July 2025. With your support we were able to raise a whopping £12,068.34 for Loros!</p>
+        </section>
+        <div class="center-image">
+            <img src="my-website/src/images/Loros-donation.jpg" alt="Natfest team donating to Loros">
+        </div>
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+        <p>&copy; Natfest 2026 | <a href="privacy.html">Privacy Policy</a></p>
+        <a href="https://www.loros.co.uk/" target="_blank" rel="noopener noreferrer">
+        <img src="my-website/src/images/LOROS_Charity.jpg" alt="LOROS Charity" class="loros-footer-img">
+        </a>
+        </div>
+
+
+    <!-- <div class="footer-socials">
+        <a href="#" target="_blank" aria-label="Instagram">
+            <img src="my-website/src/images/icons/instagram.svg" alt="Instagram" class="social-icon">
+        </a>
+        <a href="#" target="_blank" aria-label="Facebook">
+            <img src="my-website/src/images/icons/facebook.svg" alt="Facebook" class="social-icon">
+        </a>
+    </div> -->
+
+    </footer>
+    <script src="js/main.js"></script>
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const sidebarNav = document.querySelector('.sidebar-nav');
+navToggle.addEventListener('click', function() {
+    sidebarNav.classList.toggle('open');
+    navToggle.classList.toggle('open');
+});
+</script>
+
+<script>
+function updateCountdown() {
+    const eventDate = new Date('2026-06-27T12:00:00');
+    const now = new Date();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = "It's Natfest time!";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+</body>
+</html>
