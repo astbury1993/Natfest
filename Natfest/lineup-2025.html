@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs</title>
+    <title>2025 Lineup</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <img src="images/Natfest-clear-header.png" alt="Natfest Header" class="header-image">
-    <nav>
-        <ul>
+        <img src="my-website/src/images/Natfest-clear-header.png" alt="Natfest Header" class="header-image">
+        <nav>
+            <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="lineup.html" class="active">Lineup</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="tickets.html">Tickets</a></li>
-            <li><a href="faqs.html" class="active">FAQs</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
             <li><a href="partners.html">Our Partners</a></li>
-        </ul>
-    </nav>
+            </ul>
+        </nav>
     </header>
     <button class="nav-toggle" aria-label="Open navigation"></button>
     <nav class="sidebar-nav">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="lineup.html" class="active">Lineup</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="tickets.html">Tickets</a></li>
-            <li><a href="faqs.html" class="active">FAQs</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
             <li><a href="partners.html">Our Partners</a></li>
         </ul>
     </nav>
 
     <div class="secondary-header">
-        <h1>Frequently asked questions</h1>
+        <h1>2025 Lineup</h1>
         <div class="countdown-container">
             <div id="countdown">
                 <span id="days">0</span> days 
@@ -48,54 +48,25 @@
     </div>
 
     <main>
-        <section class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-            <span>What date is Natfest 2026?</span>
-            <span class="chevron">&#x25BC;</span>
-        </button>
-            <div class="faq-answer" hidden>
-                Natfest 2026 will take place on Saturday 27th June 2026.
-            </div>
-        </section>
-
-        <section class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-            <span>Who is on the Natfest Line up?</span>
-            <span class="chevron">&#x25BC;</span>
-        </button>
-            <div class="faq-answer" hidden>
-                Natfest 2026 line up has not yet been announced.
-            </div>
-        </section>
-
+        <div class="center-image">
+            <img src="my-website/src/images/Natfest-2025.jpg" alt="Natfest2025  poster">
+        </div>
     </main>
     <footer>
         <div class="footer-content">
         <p>&copy; Natfest 2026 | <a href="privacy.html">Privacy Policy</a></p>
         <a href="https://www.loros.co.uk/" target="_blank" rel="noopener noreferrer">
-        <img src="images/LOROS_Charity.jpg" alt="LOROS Charity" class="loros-footer-img">
+        <img src="my-website/src/images/LOROS_Charity.jpg" alt="LOROS Charity" class="loros-footer-img">
         </a>
         </div>
     </footer>
     <script src="js/main.js"></script>
-        <script>
-    document.querySelector('.nav-toggle').addEventListener('click', function() {
-        document.querySelector('.sidebar-nav').classList.toggle('open');
-    });
-    </script>
-
-    <script>
-document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !expanded);
-        const answer = this.nextElementSibling;
-        if (expanded) {
-            answer.hidden = true;
-        } else {
-            answer.hidden = false;
-        }
-    });
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const sidebarNav = document.querySelector('.sidebar-nav');
+navToggle.addEventListener('click', function() {
+    sidebarNav.classList.toggle('open');
+    navToggle.classList.toggle('open');
 });
 </script>
 
@@ -124,6 +95,5 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 </script>
-
 </body>
 </html>
