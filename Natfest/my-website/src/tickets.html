@@ -15,6 +15,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="lineup.html">Lineup</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="tickets.html" class="active">Tickets</a></li>
                 <li><a href="faqs.html">FAQs</a></li>
                 <li><a href="partners.html">Our Partners</a></li>
@@ -27,6 +28,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="lineup.html">Lineup</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
             <li><a href="tickets.html" class="active">Tickets</a></li>
             <li><a href="faqs.html">FAQs</a></li>
             <li><a href="partners.html">Our Partners</a></li>
@@ -34,6 +36,14 @@
     </nav>
     <div class="secondary-header">
         <h1>Tickets and Pricing</h1>
+        <div class="countdown-container">
+            <div id="countdown">
+                <span id="days">0</span> days 
+                <span id="hours">0</span> hours 
+                <span id="minutes">0</span> minutes 
+                <span id="seconds">0</span> seconds
+            </div>
+        </div>
     </div>
     <main>
         <section>
@@ -83,5 +93,31 @@ This is an invite only event and not open to the general public.
             document.querySelector('.sidebar-nav').classList.toggle('open');
         });
     </script>
+
+    <script>
+function updateCountdown() {
+    const eventDate = new Date('2026-06-27T12:00:00');
+    const now = new Date();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = "It's Natfest time!";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
 </body>
 </html>

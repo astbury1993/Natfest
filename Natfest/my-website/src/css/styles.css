@@ -33,9 +33,9 @@ h1 {
     background: #EDAF66;
     color: #fff;
     text-align: center;
-    padding: 1.5rem 0 1rem 0;
+    padding: 10px 0 1rem 0;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 30px;
 }
 
 .secondary-header h1 {
@@ -348,16 +348,14 @@ nav ul li a:hover {
 /* Countdown styling */
 .countdown-container {
     text-align: center;
-    background: #fffbe6;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background: #EDAF66;
 }
 
 #countdown {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #EDAF66;
+    
+    
 }
 
 nav ul li a.active,
@@ -491,4 +489,132 @@ nav ul li a.active,
         height: 50vw;
         max-height: 320px;
     }
+}
+
+/* Gallery grid */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.gallery-thumb {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.2s;
+}
+.gallery-thumb:hover {
+    transform: scale(1.05);
+}
+
+/* Modal styles */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.gallery-modal.open {
+    display: flex;
+}
+.gallery-modal-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.gallery-close, .gallery-prev, .gallery-next {
+    color: #fff;
+    font-size: 2.5em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    padding: 0 12px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+}
+.gallery-close {
+    top: 30px;
+    right: 40px;
+    font-size: 2em;
+    transform: none;
+}
+.gallery-prev {
+    left: 40px;
+}
+.gallery-next {
+    right: 40px;
+}
+@media (max-width: 600px) {
+    .gallery-thumb { width: 100px; height: 70px; }
+    .gallery-modal-img { max-width: 98vw; max-height: 60vh; }
+    .gallery-prev, .gallery-next { font-size: 2em; }
+}
+
+/* Add to your styles.css for styling the social icons */
+.footer-socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    transition: opacity 0.2s;
+}
+.social-icon:hover {
+    opacity: 0.7;
+}
+
+/* Add to your styles.css */
+.letter-component {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fffbea;
+    border: 1.5px solid #e0d6b9;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    padding: 32px 28px;
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+    font-size: 1.15em;
+    line-height: 1.7;
+    position: relative;
+}
+.letter-component::before {
+    content: "";
+    position: absolute;
+    top: 18px; left: 18px; right: 18px; bottom: 18px;
+    border: 1px dashed #d2c7a3;
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+/* Add to your styles.css for a styled gallery link */
+.view-gallery-link {
+    display: inline-block;
+    background: #ffe066;
+    color: #222;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.view-gallery-link:hover {
+    background: #ffd23f;
+    color: #000;
 }
