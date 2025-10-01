@@ -57,6 +57,8 @@
 
 <p>I wanted to thank you on behalf of the entire team here at LOROS for the recent donation of £12,068.34 which I understand was raised by yourself as well as your family and friends at this year’s Natfest, an event created in memory of your wife Natalie. What an incredible tribute to her and what an astonishing amount of money. You must all be thrilled and feel rightfully proud.</p>
 
+<div class="more-content" id="moreContent" style="display: none;">
+
 <p>You may be aware that it now costs £11.5 million each year to be able to deliver our unique care services. The NHS does give us some money, but we still need to raise at least £9 million each year from our local community. We simply couldn’t do what we do without the support of people like you and all of those people who helped to make Natfest such a huge success.</p>
 
 <p>It is difficult to express in an email the difference donations like this one make, but we’d like to put into context just how valuable donations like yours are. Each week our Counselling team deliver over 50 sessions. This could be through one-to-one appointments with bereaved family members or with our specialist children and young people's counsellor, visits to patients on the Ward to support them to come to terms with their diagnosis, or through attending a group session led by our highly trained volunteers. It costs £15,544.00 to fund this service for one whole month. Your generous donation could cover more than 400 counselling sessions. It is these types of services, that perhaps many people don’t realise we offer, that make LOROS special and unique, but it is only through donations like yours that we are able to continue delivering this exceptional level of care to all our patients and their family members.</p>
@@ -69,7 +71,9 @@
 
 <p>Kind regards,<br><br>
 Laura</p>
+</div>
 
+<button onclick="toggleLetter()" class="view-gallery-link" id="toggleButton">Read more</button>
         </div>
            
         </section>
@@ -196,6 +200,22 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 </script>
+
+<script>
+  function toggleLetter() {
+    const moreContent = document.getElementById("moreContent");
+    const toggleButton = document.getElementById("toggleButton");
+
+    if (moreContent.style.display === "none") {
+      moreContent.style.display = "block";
+      toggleButton.textContent = "Read less";
+    } else {
+      moreContent.style.display = "none";
+      toggleButton.textContent = "Read more";
+    }
+  }
+</script>
+
 
 </body>
 </html>
