@@ -10,6 +10,39 @@ header {
     color: #ffffff;
     /*padding: 20px 0; */
     text-align: center;
+    position: relative;
+}
+
+.header-badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;   /* centered under the logo on desktop */
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* badge image styling */
+.header-badge {
+    height: 56px;      /* adjust size to taste */
+    width: auto;
+    display: inline-block;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Mobile: keep badges below the header image (not off to the right) */
+@media (max-width: 768px) {
+    .header-badges {
+        position: static;           /* ensure normal flow under header image */
+        margin-top: 12px;
+        flex-direction: row;        /* keep icons side-by-side; use column if you prefer stacked */
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+    .header-badge {
+        height: 44px; /* slightly smaller on mobile */
+    }
 }
 
 h1 {
@@ -115,8 +148,6 @@ p {
     line-height: 1.6;
 }
 
-/* ...existing code... */
-
 /* Indent main content */
 main {
     margin: 0 auto;
@@ -170,8 +201,6 @@ nav ul li a:hover {
     border-radius: 8px;
 }
 
-/* ...existing code... */
-
 /* Hide hamburger and sidebar by default */
 .nav-toggle {
     display: none;
@@ -186,13 +215,12 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* ...existing code... */
-
 .sidebar-nav {
     display: none;
 }
 
 @media (max-width: 768px) {
+    
     nav ul {
         display: none; /* Hide horizontal nav */
     }
@@ -236,6 +264,7 @@ nav ul li a:hover {
     .sidebar-nav a:hover {
         background: #588C7F;
     }
+
 }
 
 /* Hamburger to cross transition */
@@ -627,4 +656,26 @@ nav ul li a.active,
     cursor: pointer;
     text-align: center;
   }
+
+@media (max-width: 768px) {
+    /* reduce logo width so it doesn't get covered by the burger */
+    .header-image {
+        max-width: calc(100% - 88px); /* leaves room for the burger icon; tweak 88px if needed */
+        height: auto;
+        max-height: 160px; /* slightly smaller on mobile */
+        margin: 8px auto 0;
+        display: block;
+    }
+
+    /* keep hamburger clearly on top */
+    .nav-toggle {
+        z-index: 1200;
+    }
+
+    /* optional: give header a small left padding so content doesn't sit under the burger */
+    header {
+        padding-left: 20px; /* increase if you need more spacing */
+        box-sizing: border-box;
+    }
+}
 
