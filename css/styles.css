@@ -66,9 +66,8 @@ h1 {
     background: #EDAF66;
     color: #fff;
     text-align: center;
-    padding: 10px 0 1rem 0;
     margin-top: 0;
-    margin-bottom: 30px;
+    
 }
 
 .secondary-header h1 {
@@ -677,5 +676,62 @@ nav ul li a.active,
         padding-left: 20px; /* increase if you need more spacing */
         box-sizing: border-box;
     }
+}
+
+/* Horizontal scrolling announcement banner */
+.scroll-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #C85A11; /* bolder colour - change if desired */
+  color: #fff;
+  border-radius: 6px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.scroll-track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  /* ensure content sits on single line */
+  white-space: nowrap;
+  /* keep the track wide so we can move it left */
+  will-change: transform;
+  animation: scroll-left 20s linear infinite;
+}
+
+/* duplicate block containing the text; duplicated in HTML for seamless loop */
+.scroll-content {
+  display: inline-flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* pause on hover/focus for usability */
+.scroll-banner:hover .scroll-track,
+.scroll-banner:focus-within .scroll-track {
+  animation-play-state: paused;
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-track {
+    animation: none;
+  }
+}
+
+/* animation moves the duplicated content left by 50% of the track width */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  .scroll-content { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
+  .scroll-banner { border-radius: 4px; margin: 0.75rem 0; }
 }
 
