@@ -8,42 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <img src="my-website/src/images/Natfest-clear-header.png" alt="Natfest Header" class="header-image">
-        <div class="header-badges">
-                <a href="https://www.facebook.com/groups/936096755035843" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <img src="my-website/src/images/facebook-icon.png" alt="Facebook" class="header-badge">
-                </a>
-                <a href="https://www.instagram.com/Natfest2026" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <img src="my-website/src/images/instagram-icon.png" alt="Instagram" class="header-badge">
-                </a>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="lineup.html">Lineup</a></li>
-            <li><a href="vendors.html">Vendors</a></li>
-            <li><a href="gallery.html" class="active">Gallery</a></li>
-            <li><a href="tickets.html">Tickets</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="partners.html">Our Partners</a></li>
-        </ul>
-    </nav>
-    </header>
-    <button class="nav-toggle" aria-label="Open navigation"></button>
-    <nav class="sidebar-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="lineup.html">Lineup</a></li>
-            <li><a href="vendors.html">Vendors</a></li>
-            <li><a href="gallery.html" class="active">Gallery</a></li>
-            <li><a href="tickets.html">Tickets</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="partners.html">Our Partners</a></li>
-        </ul>
-    </nav>
+    <div data-include="header"></div>
     <div class="secondary-header">
         <h1>Gallery - 2025</h1>
                 <div class="countdown-container">
@@ -257,92 +222,9 @@
 <!-- gallery Component End -->
 
     </main>
-    <footer>
-        <div class="footer-content">
-        <p>Natfest 2026 | <a href="privacy.html">Privacy Policy</a> | <a href="https://www.instagram.com/Natfest2026">Instagram</a> | <a href="https://www.facebook.com/groups/936096755035843">Facebook</a></p>
-        <a href="https://www.loros.co.uk/" target="_blank" rel="noopener noreferrer">
-        <img src="my-website/src/images/LOROS_Charity.jpg" alt="LOROS Charity" class="loros-footer-img">
-        </a>
-        </div>
-    </footer>
-    <script src="js/main.js"></script>
-        <script>
-    document.querySelector('.nav-toggle').addEventListener('click', function() {
-        document.querySelector('.sidebar-nav').classList.toggle('open');
-    });
-    </script>
+    <div data-include="footer"></div>
 
-    <script>
-const galleryThumbs = document.querySelectorAll('.gallery-thumb');
-const modal = document.getElementById('gallery-modal');
-const modalImg = document.getElementById('gallery-modal-img');
-const closeBtn = document.querySelector('.gallery-close');
-const prevBtn = document.querySelector('.gallery-prev');
-const nextBtn = document.querySelector('.gallery-next');
-
-let currentIndex = 0;
-let images = Array.from(galleryThumbs).map(img => img.src);
-
-function openModal(index) {
-    currentIndex = index;
-    modalImg.src = images[currentIndex];
-    modal.classList.add('open');
-}
-function closeModal() {
-    modal.classList.remove('open');
-}
-function showPrev() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    modalImg.src = images[currentIndex];
-}
-function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
-    modalImg.src = images[currentIndex];
-}
-
-galleryThumbs.forEach((img, idx) => {
-    img.addEventListener('click', () => openModal(idx));
-});
-closeBtn.addEventListener('click', closeModal);
-prevBtn.addEventListener('click', showPrev);
-nextBtn.addEventListener('click', showNext);
-
-// Optional: Close modal on outside click or ESC key
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-});
-document.addEventListener('keydown', (e) => {
-    if (!modal.classList.contains('open')) return;
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft') showPrev();
-    if (e.key === 'ArrowRight') showNext();
-});
-</script>
-
-<script>
-function updateCountdown() {
-    const eventDate = new Date('2026-06-27T12:00:00');
-    const now = new Date();
-    const diff = eventDate - now;
-
-    if (diff <= 0) {
-        document.getElementById('countdown').innerHTML = "It's Natfest time!";
-        return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
-</script>
+    <script src="js/include.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
