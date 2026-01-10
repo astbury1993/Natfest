@@ -730,7 +730,7 @@ nav ul li a.active,
   white-space: nowrap;
   /* keep the track wide so we can move it left */
   will-change: transform;
-  animation: scroll-left 20s linear infinite;
+  animation: scroll-left 15s linear infinite;
 }
 
 /* duplicate block containing the text; duplicated in HTML for seamless loop */
