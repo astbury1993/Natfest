@@ -1,3 +1,4 @@
+import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import useSanityQuery from '../hooks/useSanityQuery'
 import StageSection from '../components/lineup/StageSection'

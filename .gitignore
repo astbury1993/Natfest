@@ -13,3 +13,4 @@ dist/
 
 # Sanity
 .sanity/
+natfest-react/.vite/

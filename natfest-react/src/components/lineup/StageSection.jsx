@@ -1,3 +1,4 @@
+import React from 'react'
 import ActCard from './ActCard'
 import styles from '../../styles/StageSection.module.css'
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useMemo } from 'react'
 import useSanityQuery from '../hooks/useSanityQuery'
 import styles from '../styles/VendorsPage.module.css'
@@ -130,8 +131,6 @@ function VendorsPage() {
               })}
             </section>
           ))}
-
-          <p className={styles.moreAnnouncement}>...plus many more to be announced!</p>
         </>
       )}
     </div>

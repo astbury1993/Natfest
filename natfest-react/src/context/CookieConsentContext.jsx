@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import React, { createContext, useContext } from 'react'
 import { useCookieConsentLogic } from '../hooks/useCookieConsent'
 
 const CookieConsentContext = createContext({

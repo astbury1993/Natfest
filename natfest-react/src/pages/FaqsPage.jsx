@@ -1,3 +1,4 @@
+import React from 'react'
 import useSanityQuery from '../hooks/useSanityQuery'
 import FaqAccordion from '../components/faq/FaqAccordion'
 import styles from '../styles/FaqsPage.module.css'

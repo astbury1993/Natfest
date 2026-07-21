@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useCallback, useState } from 'react'
+import React, { createContext, useContext, useEffect, useRef, useCallback, useState } from 'react'
 import { useCookieConsent } from './CookieConsentContext'
 import { initGAWithTimeout, trackPageView as gaTrackPageView, trackEvent as gaTrackEvent, isGALoaded } from '../lib/analytics'
 

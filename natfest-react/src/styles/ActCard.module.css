@@ -69,6 +69,28 @@
   margin-bottom: var(--space-sm);
 }
 
+.readMore {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  cursor: pointer;
+  margin-bottom: var(--space-sm);
+  transition: color var(--transition-fast);
+}
+
+.readMore:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.readMore:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
 /* --- Links --- */
 .links {
   display: flex;

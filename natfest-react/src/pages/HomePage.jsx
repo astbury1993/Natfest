@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import useSanityQuery from '../hooks/useSanityQuery'
 import styles from '../styles/HomePage.module.css'

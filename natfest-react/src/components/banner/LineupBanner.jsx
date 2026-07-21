@@ -1,8 +1,9 @@
+import React from 'react'
 import { useState } from 'react'
 import useSanityQuery from '../../hooks/useSanityQuery'
 import styles from '../../styles/LineupBanner.module.css'
 
-const ACTS_QUERY = '*[_type == "act" && year == 2025]{name}'
+const ACTS_QUERY = '*[_type == "act" && year == 2026]{name}'
 
 /**
  * Scrolling lineup banner that displays act names in a continuous loop.
