@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Image Component Styles
+   ========================================================================== */
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-border);
+  border-radius: var(--radius-md);
+  min-height: 120px;
+  width: 100%;
+}
+
+.placeholderIcon {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.fallbackImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}

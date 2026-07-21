@@ -1,0 +1,45 @@
+/* ==========================================================================
+   StageSection Styles
+   Groups acts by stage with headliners displayed larger
+   ========================================================================== */
+
+.stageSection {
+  margin-bottom: var(--space-xl);
+}
+
+.stageHeading {
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-sm);
+  border-bottom: 3px solid var(--color-secondary);
+}
+
+.headliners {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.supporting {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .headliners {
+    grid-template-columns: 1fr;
+  }
+
+  .supporting {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .stageHeading {
+    font-size: var(--font-size-xl);
+  }
+}

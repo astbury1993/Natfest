@@ -1,0 +1,119 @@
+/* ==========================================================================
+   LineupBanner — Scrolling lineup announcement
+   ========================================================================== */
+
+.banner {
+  overflow: hidden;
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  padding: var(--space-sm) 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+.banner:hover .track,
+.banner:focus-within .track {
+  animation-play-state: paused;
+}
+
+.track {
+  display: inline-flex;
+  animation: scroll 20s linear infinite;
+}
+
+.actList {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 0 var(--space-md);
+}
+
+.actName {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.separator {
+  opacity: 0.7;
+}
+
+/* Pause button for visible pause mechanism (requirement 5.10) */
+.pauseButton {
+  position: absolute;
+  top: 50%;
+  right: var(--space-md);
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1px solid var(--color-text-inverse);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+  z-index: 1;
+}
+
+.pauseButton:hover {
+  opacity: 1;
+}
+
+.pauseButton:focus-visible {
+  opacity: 1;
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.paused .track {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   Keyframe Animation
+   ========================================================================== */
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion — show static comma-separated text
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    display: block;
+    white-space: normal;
+  }
+
+  .banner {
+    white-space: normal;
+    text-align: center;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .actList {
+    display: inline;
+    gap: 0;
+    padding: 0;
+  }
+
+  .actName {
+    display: inline;
+  }
+
+  .separator {
+    display: inline;
+  }
+
+  .pauseButton {
+    display: none;
+  }
+}

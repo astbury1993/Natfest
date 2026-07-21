@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Header & Navigation Styles
+   ========================================================================== */
+
+.header {
+  background-color: var(--color-secondary);
+  padding: var(--space-sm) var(--space-md);
+  position: relative;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  gap: var(--space-md);
+}
+
+/* --- Logo --- */
+.logoLink {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoLink:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  border-radius: var(--radius-sm);
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+/* --- Social Links --- */
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.socialLink:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.socialLink:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* --- Desktop Navigation --- */
+.desktopNav {
+  margin-left: auto;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.navLink {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.navLink:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.navLink:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.navLinkActive {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* --- Hamburger Button --- */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
+  padding: var(--space-sm);
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.hamburger:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.hamburger:hover {
+  background-color: var(--color-primary);
+}
+
+.hamburger:hover .hamburgerLine {
+  background-color: var(--color-text-inverse);
+}
+
+.hamburgerLine {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background-color: var(--color-text-primary);
+  border-radius: 2px;
+  transition: background-color var(--transition-fast);
+}
+
+/* --- Sidebar Placeholder (temporary until task 2.3) --- */
+.sidebarPlaceholder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-overlay);
+  z-index: 100;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Mobile: hide desktop nav, show hamburger */
+@media (max-width: 767px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Desktop: show desktop nav, hide hamburger */
+@media (min-width: 768px) {
+  .desktopNav {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .logo {
+    height: 56px;
+  }
+}

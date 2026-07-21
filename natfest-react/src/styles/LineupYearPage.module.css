@@ -1,0 +1,84 @@
+/* ==========================================================================
+   LineupYearPage Styles
+   Year-specific lineup page with stage sections
+   ========================================================================== */
+
+.page {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.heading {
+  font-size: var(--font-size-3xl);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: var(--space-xl);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--color-primary-dark);
+}
+
+.backLink:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.stages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+}
+
+.loadingText,
+.errorText,
+.notAnnounced {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.errorText {
+  color: var(--color-accent);
+}
+
+.notAnnounced {
+  font-size: var(--font-size-lg);
+  padding: var(--space-3xl) 0;
+}
+
+.posterContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+.posterImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .page {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .heading {
+    font-size: var(--font-size-2xl);
+  }
+}

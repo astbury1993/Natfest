@@ -1,0 +1,151 @@
+/* ==========================================================================
+   HomePage Styles
+   ========================================================================== */
+
+.page {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* --- Hero Section --- */
+.hero {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.heroHeading {
+  font-size: var(--font-size-3xl);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-md);
+}
+
+.heroSubtext {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroImageWrapper {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: center;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Story Section (The Reason Behind Natfest) --- */
+.storySection {
+  background-color: var(--color-surface-warm);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionHeading {
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-lg);
+}
+
+.storyParagraph {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.storyEmoji {
+  font-size: var(--font-size-lg);
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
+/* --- Gallery CTA Section --- */
+.galleryCta {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-md);
+  margin-bottom: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.galleryCta .sectionHeading {
+  margin-bottom: var(--space-lg);
+}
+
+.galleryLink {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  transition: background-color var(--transition-fast);
+}
+
+.galleryLink:hover {
+  background-color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.galleryLink:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* --- History Section --- */
+.historySection {
+  margin-bottom: var(--space-2xl);
+}
+
+.historySection .sectionHeading {
+  margin-bottom: var(--space-md);
+}
+
+.historyText {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.donationImageWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.donationImage {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .heroHeading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .storySection {
+    padding: var(--space-lg);
+  }
+
+  .sectionHeading {
+    font-size: var(--font-size-xl);
+  }
+}

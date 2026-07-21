@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment files (contain secrets)
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+
+# Sanity
+.sanity/

@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Cookie Policy Page Styles
+   ========================================================================== */
+
+.page {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.heading {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-sm);
+}
+
+.lastUpdated {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2xl);
+}
+
+.content {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.section {
+  margin-bottom: var(--space-xl);
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionHeading {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-heading);
+}
+
+.section p {
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+.cookieTable {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+}
+
+.cookieTable th,
+.cookieTable td {
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cookieTable th {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-bold);
+}
+
+.cookieTable tr:last-child td {
+  border-bottom: none;
+}
+
+.preferenceSection {
+  background-color: var(--color-surface-warm);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.preferenceHeading {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-heading);
+}
+
+.currentPreference {
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-base);
+}
+
+.preferenceStatus {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.acceptButton,
+.rejectButton {
+  padding: var(--space-sm) var(--space-xl);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  min-width: 120px;
+  min-height: 44px;
+}
+
+.acceptButton {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.acceptButton:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.acceptButton:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.rejectButton {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.rejectButton:hover {
+  background-color: var(--color-border);
+}
+
+.rejectButton:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.confirmationMessage {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-bold);
+}

@@ -1,0 +1,171 @@
+/* ==========================================================================
+   VendorsPage Styles
+   ========================================================================== */
+
+.page {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.pageHeading {
+  font-size: var(--font-size-3xl);
+  color: var(--color-text-heading);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* --- Year toggle --- */
+.yearToggle {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+}
+
+.yearButton {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.yearButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.yearButton:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.yearActive {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.yearActive:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* --- State displays --- */
+.loadingState,
+.errorState,
+.emptyState {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-md);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+}
+
+.errorState {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Category sections --- */
+.categorySection {
+  margin-bottom: var(--space-3xl);
+}
+
+.categoryHeading {
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+/* --- Vendor row (alternating image-text layout) --- */
+.vendorRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.vendorRowReversed {
+  flex-direction: row-reverse;
+}
+
+/* --- Image --- */
+.imageWrapper {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+.vendorImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+/* --- Content --- */
+.vendorContent {
+  flex: 1;
+}
+
+.vendorName {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-sm);
+}
+
+.vendorDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* --- More announcement --- */
+.moreAnnouncement {
+  text-align: center;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-heading);
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .pageHeading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .vendorRow,
+  .vendorRowReversed {
+    flex-direction: column;
+  }
+
+  .imageWrapper {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .vendorImage {
+    aspect-ratio: 16 / 9;
+  }
+
+  .categoryHeading {
+    font-size: var(--font-size-xl);
+  }
+}
