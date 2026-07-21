@@ -1,3 +1,4 @@
+import React from 'react'
 import { Outlet } from 'react-router-dom'
 import SkipLink from '../common/SkipLink'
 import Header from './Header'
@@ -16,7 +17,8 @@ function Layout() {
       <Header />
       <div className="secondary-header">
         <CountdownTimer targetDate={EVENT_DATE} />
-        <LineupBanner />
+        {/* LineupBanner hidden until 2027 acts are added */}
+        {/* <LineupBanner /> */}
       </div>
       <main id="main-content">
         <Outlet />

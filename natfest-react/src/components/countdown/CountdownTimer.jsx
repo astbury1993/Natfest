@@ -1,3 +1,4 @@
+import React from 'react'
 import { useCountdown } from '../../hooks/useCountdown'
 import styles from '../../styles/CountdownTimer.module.css'
 

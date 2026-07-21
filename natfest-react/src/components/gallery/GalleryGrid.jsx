@@ -1,3 +1,4 @@
+import React from 'react'
 import Image from '../common/Image'
 import styles from '../../styles/GalleryGrid.module.css'
 

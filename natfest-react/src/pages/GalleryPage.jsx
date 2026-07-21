@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import GalleryFilter from '../components/gallery/GalleryFilter'
 import GalleryGrid from '../components/gallery/GalleryGrid'

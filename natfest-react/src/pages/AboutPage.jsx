@@ -1,3 +1,4 @@
+import React from 'react'
 import useSanityQuery from '../hooks/useSanityQuery'
 import LorosLetter from '../components/about/LorosLetter'
 import TeamMember from '../components/about/TeamMember'

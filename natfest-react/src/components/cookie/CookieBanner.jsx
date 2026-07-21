@@ -1,3 +1,4 @@
+import React from 'react'
 import { useCookieConsent } from '../../context/CookieConsentContext'
 import styles from '../../styles/CookieBanner.module.css'
 

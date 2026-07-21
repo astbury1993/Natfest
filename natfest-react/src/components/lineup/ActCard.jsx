@@ -1,13 +1,17 @@
+import React from 'react'
+import { useState } from 'react'
 import styles from '../../styles/ActCard.module.css'
+
+const TRUNCATE_LENGTH = 150
 
 function ActCard({ act, isHeadliner = false }) {
   const { name, description, imageUrl, links } = act
+  const [expanded, setExpanded] = useState(false)
 
-  // Truncate description to 500 characters
-  const truncatedDescription =
-    description && description.length > 500
-      ? `${description.slice(0, 500)}...`
-      : description
+  const needsTruncation = description && description.length > TRUNCATE_LENGTH
+  const displayDescription = expanded || !needsTruncation
+    ? description
+    : `${description.slice(0, TRUNCATE_LENGTH)}...`
 
   // Limit links to 5
   const displayLinks = links ? links.slice(0, 5) : []
@@ -31,8 +35,18 @@ function ActCard({ act, isHeadliner = false }) {
       </div>
       <div className={styles.content}>
         <h3 className={styles.name}>{name}</h3>
-        {truncatedDescription && (
-          <p className={styles.description}>{truncatedDescription}</p>
+        {displayDescription && (
+          <p className={styles.description}>{displayDescription}</p>
+        )}
+        {needsTruncation && (
+          <button
+            className={styles.readMore}
+            onClick={() => setExpanded(!expanded)}
+            type="button"
+            aria-expanded={expanded}
+          >
+            {expanded ? 'Show less' : 'Read more'}
+          </button>
         )}
         {displayLinks.length > 0 && (
           <ul className={styles.links} aria-label={`Links for ${name}`}>

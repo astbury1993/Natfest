@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect, useCallback, useState } from 'react'
 import { buildCloudinaryUrl } from '../../lib/cloudinary'
 import styles from '../../styles/GalleryLightbox.module.css'

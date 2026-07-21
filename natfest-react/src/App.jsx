@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useMemo } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import ErrorBoundary from './components/common/ErrorBoundary'
@@ -23,27 +23,27 @@ function PageSuspense({ children }) {
   )
 }
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      { index: true, element: <ErrorBoundary><PageSuspense><HomePage /></PageSuspense></ErrorBoundary> },
-      { path: 'about', element: <ErrorBoundary><PageSuspense><AboutPage /></PageSuspense></ErrorBoundary> },
-      { path: 'lineup', element: <ErrorBoundary><PageSuspense><LineupPage /></PageSuspense></ErrorBoundary> },
-      { path: 'lineup/:year', element: <ErrorBoundary><PageSuspense><LineupYearPage /></PageSuspense></ErrorBoundary> },
-      { path: 'vendors', element: <ErrorBoundary><PageSuspense><VendorsPage /></PageSuspense></ErrorBoundary> },
-      { path: 'gallery', element: <ErrorBoundary><PageSuspense><GalleryPage /></PageSuspense></ErrorBoundary> },
-      { path: 'tickets', element: <ErrorBoundary><PageSuspense><TicketsPage /></PageSuspense></ErrorBoundary> },
-      { path: 'faqs', element: <ErrorBoundary><PageSuspense><FaqsPage /></PageSuspense></ErrorBoundary> },
-      { path: 'partners', element: <ErrorBoundary><PageSuspense><PartnersPage /></PageSuspense></ErrorBoundary> },
-      { path: 'privacy', element: <ErrorBoundary><PageSuspense><PrivacyPolicyPage /></PageSuspense></ErrorBoundary> },
-      { path: 'cookies', element: <ErrorBoundary><PageSuspense><CookiePolicyPage /></PageSuspense></ErrorBoundary> },
-    ],
-  },
-])
-
 function App() {
+  const router = useMemo(() => createBrowserRouter([
+    {
+      path: '/',
+      element: <Layout />,
+      children: [
+        { index: true, element: <ErrorBoundary><PageSuspense><HomePage /></PageSuspense></ErrorBoundary> },
+        { path: 'about', element: <ErrorBoundary><PageSuspense><AboutPage /></PageSuspense></ErrorBoundary> },
+        { path: 'lineup', element: <ErrorBoundary><PageSuspense><LineupPage /></PageSuspense></ErrorBoundary> },
+        { path: 'lineup/:year', element: <ErrorBoundary><PageSuspense><LineupYearPage /></PageSuspense></ErrorBoundary> },
+        { path: 'vendors', element: <ErrorBoundary><PageSuspense><VendorsPage /></PageSuspense></ErrorBoundary> },
+        { path: 'gallery', element: <ErrorBoundary><PageSuspense><GalleryPage /></PageSuspense></ErrorBoundary> },
+        { path: 'tickets', element: <ErrorBoundary><PageSuspense><TicketsPage /></PageSuspense></ErrorBoundary> },
+        { path: 'faqs', element: <ErrorBoundary><PageSuspense><FaqsPage /></PageSuspense></ErrorBoundary> },
+        { path: 'partners', element: <ErrorBoundary><PageSuspense><PartnersPage /></PageSuspense></ErrorBoundary> },
+        { path: 'privacy', element: <ErrorBoundary><PageSuspense><PrivacyPolicyPage /></PageSuspense></ErrorBoundary> },
+        { path: 'cookies', element: <ErrorBoundary><PageSuspense><CookiePolicyPage /></PageSuspense></ErrorBoundary> },
+      ],
+    },
+  ]), [])
+
   return <RouterProvider router={router} />
 }
 

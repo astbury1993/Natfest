@@ -1,3 +1,4 @@
+import React from 'react'
 import useSanityQuery from '../hooks/useSanityQuery'
 import styles from '../styles/PartnersPage.module.css'
 

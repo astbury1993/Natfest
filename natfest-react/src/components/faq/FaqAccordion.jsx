@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import FaqItem from './FaqItem'
 import styles from '../../styles/FaqAccordion.module.css'

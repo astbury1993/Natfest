@@ -1,3 +1,4 @@
+import React from 'react'
 import { useRef, useEffect, useCallback, useState } from 'react'
 import useFocusTrap from '../../hooks/useFocusTrap'
 import { buildCloudinaryUrl } from '../../lib/cloudinary'
