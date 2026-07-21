@@ -1,0 +1,75 @@
+/* ==========================================================================
+   LorosLetter Styles
+   ========================================================================== */
+
+.letter {
+  background-color: var(--color-surface-warm);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.heading {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-lg);
+}
+
+.introWrapper {
+  margin-bottom: var(--space-md);
+}
+
+.intro {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+}
+
+.fullContent {
+  margin-bottom: var(--space-md);
+}
+
+.fullContent p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.fullContent p:last-child {
+  margin-bottom: 0;
+}
+
+.toggleButton {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.toggleButton:hover {
+  color: var(--color-primary-dark);
+}
+
+.toggleButton:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .letter {
+    padding: var(--space-lg);
+  }
+
+  .heading {
+    font-size: var(--font-size-lg);
+  }
+}

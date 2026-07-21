@@ -1,0 +1,62 @@
+import { Link } from 'react-router-dom'
+import styles from '../../styles/Footer.module.css'
+
+function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <nav aria-label="Footer navigation" className={styles.nav}>
+          <ul className={styles.linkList}>
+            <li>
+              <Link to="/privacy" className={styles.link}>
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/cookies" className={styles.link}>
+                Cookie Policy
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/natfestmusic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/natfestmusic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                Facebook
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div className={styles.charity}>
+          <a
+            href="https://www.loros.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.lorosLink}
+          >
+            <img
+              src="/loros-logo.png"
+              alt="LOROS Hospice - the charity we raise money for"
+              className={styles.lorosLogo}
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer

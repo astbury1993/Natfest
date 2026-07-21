@@ -1,0 +1,79 @@
+/* ==========================================================================
+   LineupPage Styles
+   Landing page with year navigation links
+   ========================================================================== */
+
+.page {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+}
+
+.heading {
+  font-size: var(--font-size-3xl);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-2xl);
+}
+
+.yearNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  justify-content: center;
+}
+
+.yearLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 120px;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  text-decoration: none;
+}
+
+.yearLink:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  background-color: var(--color-primary-dark);
+}
+
+.yearLink:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.loadingText,
+.errorText,
+.emptyText {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+}
+
+.errorText {
+  color: var(--color-accent);
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .page {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .heading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .yearLink {
+    width: 160px;
+    height: 100px;
+    font-size: var(--font-size-xl);
+  }
+}

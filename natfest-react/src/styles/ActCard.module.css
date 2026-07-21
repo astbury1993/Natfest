@@ -1,0 +1,130 @@
+/* ==========================================================================
+   ActCard Styles
+   Individual act card with image, name, description, and links
+   ========================================================================== */
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- Image --- */
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Placeholder (no image) --- */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #d0d0d0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.placeholderIcon {
+  font-size: 3rem;
+  color: #888;
+}
+
+.placeholderText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- Content --- */
+.content {
+  padding: var(--space-md);
+}
+
+.name {
+  font-size: var(--font-size-md);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-sm);
+}
+
+.description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-normal);
+  margin-bottom: var(--space-sm);
+}
+
+/* --- Links --- */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.link {
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.link:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.link:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* ==========================================================================
+   Headliner Modifier
+   Headliner cards have images at least twice the width of supporting acts
+   ========================================================================== */
+.headliner .imageWrapper {
+  aspect-ratio: 16 / 9;
+}
+
+.headliner .name {
+  font-size: var(--font-size-xl);
+}
+
+.headliner .description {
+  font-size: var(--font-size-base);
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .content {
+    padding: var(--space-sm);
+  }
+
+  .name {
+    font-size: var(--font-size-base);
+  }
+
+  .headliner .name {
+    font-size: var(--font-size-lg);
+  }
+}

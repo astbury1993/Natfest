@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Countdown Timer Styles
+   ========================================================================== */
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  gap: var(--space-sm);
+}
+
+.segments {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.segment {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.value {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.label {
+  font-size: var(--font-size-xs);
+  text-transform: lowercase;
+}
+
+.separator {
+  margin: 0 var(--space-xs);
+  opacity: 0.7;
+}
+
+.pastMessage {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .countdown {
+    font-size: var(--font-size-base);
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  .value {
+    font-size: var(--font-size-lg);
+  }
+
+  .label {
+    font-size: var(--font-size-sm);
+  }
+}

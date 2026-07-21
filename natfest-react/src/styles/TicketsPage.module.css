@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Tickets Page Styles
+   ========================================================================== */
+
+.page {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.heading {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.announcement {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.details {
+  margin-bottom: var(--space-lg);
+}
+
+.details p {
+  margin-bottom: var(--space-sm);
+}
+
+.includes {
+  margin-bottom: var(--space-lg);
+}
+
+.includes h2 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+}
+
+.includesList {
+  list-style: disc;
+  padding-left: var(--space-xl);
+}
+
+.includesList li {
+  margin-bottom: var(--space-xs);
+  line-height: var(--line-height-normal);
+}
+
+.pricing {
+  margin-bottom: var(--space-lg);
+}
+
+.pricing h2 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+}
+
+.priceList {
+  list-style: none;
+}
+
+.priceList li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceList li:last-child {
+  border-bottom: none;
+}
+
+.priceLabel {
+  font-weight: var(--font-weight-bold);
+}
+
+.priceValue {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+.social {
+  margin-bottom: var(--space-lg);
+}
+
+.social h2 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-primary);
+  text-decoration: underline;
+  font-weight: var(--font-weight-bold);
+  padding: var(--space-xs) 0;
+}
+
+.socialLink:hover {
+  color: var(--color-primary-dark);
+}
+
+.socialLink:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.notice {
+  background-color: var(--color-surface-warm);
+  border-left: 4px solid var(--color-accent);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+}

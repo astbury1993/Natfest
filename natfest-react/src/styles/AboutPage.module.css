@@ -1,0 +1,70 @@
+/* ==========================================================================
+   AboutPage Styles
+   ========================================================================== */
+
+.page {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.pageHeading {
+  font-size: var(--font-size-3xl);
+  color: var(--color-text-heading);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+/* --- LOROS Letter Section --- */
+.lorosSection {
+  margin-bottom: var(--space-3xl);
+}
+
+/* --- Team Section --- */
+.teamSection {
+  margin-bottom: var(--space-2xl);
+}
+
+.sectionHeading {
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-heading);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.teamGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* --- Loading & Error Messages --- */
+.loadingMessage {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  padding: var(--space-xl);
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-accent);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .pageHeading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .sectionHeading {
+    font-size: var(--font-size-xl);
+  }
+}
