@@ -2,14 +2,17 @@ import { Link } from 'react-router-dom'
 import useSanityQuery from '../hooks/useSanityQuery'
 import styles from '../styles/LineupPage.module.css'
 
+// Always show these years even if no act documents exist for them
+const STATIC_YEARS = [2025]
+
 function LineupPage() {
   const { data, loading, error } = useSanityQuery(
     `*[_type == "act"] { year } | order(year desc)`
   )
 
-  // Deduplicate years and sort descending
+  // Deduplicate years from acts, merge with static years, sort descending
   const years = data
-    ? [...new Set(data.map((item) => item.year))].sort((a, b) => b - a)
+    ? [...new Set([...data.map((item) => item.year), ...STATIC_YEARS])].sort((a, b) => b - a)
     : []
 
   if (loading) {

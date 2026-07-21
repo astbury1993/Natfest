@@ -48,7 +48,7 @@ function Footer() {
             className={styles.lorosLink}
           >
             <img
-              src="/loros-logo.png"
+              src="/loros-logo.jpg"
               alt="LOROS Hospice - the charity we raise money for"
               className={styles.lorosLogo}
             />

@@ -1,77 +1,98 @@
+import useSanityQuery from '../hooks/useSanityQuery'
 import styles from '../styles/TicketsPage.module.css'
 
+const TICKETS_QUERY = `*[_type == "ticketsPage"][0]{
+  heading,
+  announcement,
+  eventDate,
+  eventTime,
+  eventLocation,
+  includes,
+  pricing,
+  socialLinks,
+  notice
+}`
+
 function TicketsPage() {
+  const { data, loading } = useSanityQuery(TICKETS_QUERY)
+
+  if (loading) {
+    return (
+      <div className={styles.page}>
+        <p className={styles.loadingText}>Loading...</p>
+      </div>
+    )
+  }
+
+  const heading = data?.heading || 'Natfest ticket sales announcement! 🎫'
+  const announcement = data?.announcement || 'On sale Saturday 27th September for Natfest 2026'
+  const eventDate = data?.eventDate || '27/06/26'
+  const eventTime = data?.eventTime || '11:00 – 23:30'
+  const eventLocation = data?.eventLocation || 'Sileby, Leicestershire'
+  const includes = data?.includes || ['Live music', 'Food vendors', 'Licensed bar', 'Raffle', 'Face painting', 'Bouncy castles', 'Competitions']
+  const pricing = data?.pricing || [
+    { label: 'Adults', price: '£30' },
+    { label: 'Children (5–16)', price: '£15' },
+    { label: 'Under 5s', price: 'FREE' },
+  ]
+  const socialLinks = data?.socialLinks || [
+    { platform: 'Instagram', url: 'https://www.instagram.com/Natfest2026' },
+    { platform: 'Facebook', url: 'https://www.facebook.com/groups/936096755035843' },
+  ]
+  const notice = data?.notice || 'This is an invite-only event. No tickets available on the gate.'
+
   return (
     <div className={styles.page}>
-      <h1 className={styles.heading}>Natfest ticket sales announcement! 🎫</h1>
+      <h1 className={styles.heading}>{heading}</h1>
 
       <div className={styles.card}>
-        <p className={styles.announcement}>
-          On sale Saturday 27th September for Natfest 2026
-        </p>
+        <p className={styles.announcement}>{announcement}</p>
 
         <div className={styles.details}>
-          <p><strong>Date:</strong> 27/06/26</p>
-          <p><strong>Time:</strong> 11:00 &ndash; 23:30</p>
-          <p><strong>Location:</strong> Sileby, Leicestershire</p>
+          <p><strong>Date:</strong> {eventDate}</p>
+          <p><strong>Time:</strong> {eventTime}</p>
+          <p><strong>Location:</strong> {eventLocation}</p>
         </div>
 
         <div className={styles.includes}>
           <h2>What&apos;s Included</h2>
           <ul className={styles.includesList}>
-            <li>Live music</li>
-            <li>Food vendors</li>
-            <li>Licensed bar</li>
-            <li>Raffle</li>
-            <li>Face painting</li>
-            <li>Bouncy castles</li>
-            <li>Competitions</li>
+            {includes.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
           </ul>
         </div>
 
         <div className={styles.pricing}>
           <h2>Pricing</h2>
           <ul className={styles.priceList}>
-            <li>
-              <span className={styles.priceLabel}>Adults</span>
-              <span className={styles.priceValue}>£30</span>
-            </li>
-            <li>
-              <span className={styles.priceLabel}>Children (5&ndash;16)</span>
-              <span className={styles.priceValue}>£15</span>
-            </li>
-            <li>
-              <span className={styles.priceLabel}>Under 5s</span>
-              <span className={styles.priceValue}>FREE</span>
-            </li>
+            {pricing.map((tier, i) => (
+              <li key={i}>
+                <span className={styles.priceLabel}>{tier.label}</span>
+                <span className={styles.priceValue}>{tier.price}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className={styles.social}>
           <h2>Follow Us</h2>
           <div className={styles.socialLinks}>
-            <a
-              href="https://www.instagram.com/Natfest2026"
-              className={styles.socialLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://www.facebook.com/groups/936096755035843"
-              className={styles.socialLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Facebook
-            </a>
+            {socialLinks.map((link, i) => (
+              <a
+                key={i}
+                href={link.url}
+                className={styles.socialLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.platform}
+              </a>
+            ))}
           </div>
         </div>
 
-        <p className={styles.notice}>
-          This is an invite-only event. No tickets available on the gate.
-        </p>
+        <p className={styles.notice}>{notice}</p>
       </div>
     </div>
   )

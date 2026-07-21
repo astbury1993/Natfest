@@ -12,7 +12,50 @@
   font-size: var(--font-size-3xl);
   color: var(--color-text-heading);
   text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* --- Year toggle --- */
+.yearToggle {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
   margin-bottom: var(--space-2xl);
+}
+
+.yearButton {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.yearButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.yearButton:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.yearActive {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.yearActive:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
 }
 
 /* --- State displays --- */

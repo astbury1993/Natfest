@@ -33,7 +33,7 @@
 }
 
 .trigger:hover {
-  background-color: var(--color-background);
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
 }
 
 .trigger:focus-visible {

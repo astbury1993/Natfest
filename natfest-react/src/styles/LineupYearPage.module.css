@@ -59,6 +59,19 @@
   padding: var(--space-3xl) 0;
 }
 
+.posterContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+.posterImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
 /* --- Mobile --- */
 @media (max-width: 768px) {
   .page {

@@ -22,6 +22,12 @@ export default {
       description: 'Select from categories defined in Site Settings',
     },
     {
+      name: 'year',
+      title: 'Year',
+      type: 'number',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',

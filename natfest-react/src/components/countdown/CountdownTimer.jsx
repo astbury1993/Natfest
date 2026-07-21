@@ -13,7 +13,7 @@ function CountdownTimer({ targetDate }) {
   return (
     <div className={styles.countdown} aria-live="polite" aria-atomic="true">
       {isPast ? (
-        <span className={styles.pastMessage}>It's Natfest time!</span>
+        <span className={styles.pastMessage}>Natfest 2027 - Coming Soon</span>
       ) : (
         <div className={styles.segments}>
           <span className={styles.segment}>

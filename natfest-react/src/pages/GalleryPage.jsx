@@ -1,20 +1,28 @@
 import { useState } from 'react'
 import GalleryFilter from '../components/gallery/GalleryFilter'
 import GalleryGrid from '../components/gallery/GalleryGrid'
+import GalleryLightbox from '../components/gallery/GalleryLightbox'
 import useGallery from '../hooks/useGallery'
 import styles from '../styles/GalleryPage.module.css'
 
+const YEARS = [2026, 2025]
+
 /**
- * Gallery page with category filtering, infinite scroll pagination,
+ * Gallery page with year toggle, category filtering, infinite scroll pagination,
  * and error/retry handling.
- *
- * Manages selectedImageIndex state for future modal integration (task 7.3).
  */
 function GalleryPage() {
+  const [activeYear, setActiveYear] = useState(2026)
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedImageIndex, setSelectedImageIndex] = useState(null)
 
-  const { images, loading, error, hasMore, retry, sentinelRef } = useGallery(activeCategory)
+  const { images, allImages, loading, error, hasMore, retry, sentinelRef } = useGallery(activeCategory, activeYear)
+
+  function handleYearChange(year) {
+    setActiveYear(year)
+    setActiveCategory('All')
+    setSelectedImageIndex(null)
+  }
 
   function handleCategoryChange(category) {
     setActiveCategory(category)
@@ -28,6 +36,20 @@ function GalleryPage() {
   return (
     <div className={styles.page}>
       <h1 className={styles.heading}>Gallery</h1>
+
+      <div className={styles.yearToggle} role="group" aria-label="Gallery year">
+        {YEARS.map((year) => (
+          <button
+            key={year}
+            className={`${styles.yearButton} ${activeYear === year ? styles.yearActive : ''}`}
+            onClick={() => handleYearChange(year)}
+            aria-pressed={activeYear === year}
+            type="button"
+          >
+            {year}
+          </button>
+        ))}
+      </div>
 
       <GalleryFilter
         activeCategory={activeCategory}
@@ -63,6 +85,16 @@ function GalleryPage() {
           hasMore={hasMore}
           sentinelRef={sentinelRef}
           onSelect={handleImageSelect}
+        />
+      )}
+
+      {selectedImageIndex !== null && allImages.length > 0 && (
+        <GalleryLightbox
+          images={allImages}
+          currentIndex={selectedImageIndex}
+          onClose={() => setSelectedImageIndex(null)}
+          onPrev={() => setSelectedImageIndex((i) => Math.max(0, i - 1))}
+          onNext={() => setSelectedImageIndex((i) => Math.min(allImages.length - 1, i + 1))}
         />
       )}
     </div>

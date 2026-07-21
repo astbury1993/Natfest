@@ -4,16 +4,15 @@ import sanityClient from '../lib/sanityClient'
 const BATCH_SIZE = 20
 const MAX_RETRIES = 3
 
-const GALLERY_QUERY = `*[_type == "galleryImage"] | order(order asc) { _id, title, category, cloudinaryPublicId, alt, year, order }`
-
 /**
  * Hook for managing gallery image pagination, filtering, and infinite scroll.
  *
- * Fetches all gallery images from Sanity, filters client-side by category,
- * and paginates results into batches of 20 with IntersectionObserver-based
- * infinite scroll.
+ * Fetches gallery images from Sanity for the given year, filters client-side
+ * by category, and paginates results into batches of 20 with
+ * IntersectionObserver-based infinite scroll.
  *
  * @param {string} category - Active category filter ('All', 'Acts', or 'Crowd')
+ * @param {number} year - Year to filter by (e.g. 2025, 2026)
  * @returns {{
  *   images: Array,
  *   loading: boolean,
@@ -24,7 +23,8 @@ const GALLERY_QUERY = `*[_type == "galleryImage"] | order(order asc) { _id, titl
  *   sentinelRef: React.RefObject
  * }}
  */
-function useGallery(category = 'All') {
+function useGallery(category = 'All', year = 2026) {
+  const GALLERY_QUERY = `*[_type == "galleryImage" && year == ${year}] | order(order asc) { _id, title, category, cloudinaryPublicId, alt, year, order }`
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -88,7 +88,7 @@ function useGallery(category = 'All') {
     return () => {
       cancelled = true
     }
-  }, [retryCount])
+  }, [retryCount, GALLERY_QUERY])
 
   // Filter images by category client-side for fast <500ms filtering
   const filteredImages = useMemo(() => {
@@ -100,7 +100,7 @@ function useGallery(category = 'All') {
   // Reset visible count when category changes
   useEffect(() => {
     setVisibleCount(BATCH_SIZE)
-  }, [category])
+  }, [category, year])
 
   // Current page of visible images
   const images = useMemo(() => {
@@ -152,6 +152,7 @@ function useGallery(category = 'All') {
 
   return {
     images,
+    allImages: filteredImages,
     loading,
     error,
     hasMore,
