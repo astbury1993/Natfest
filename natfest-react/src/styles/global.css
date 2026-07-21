@@ -3,6 +3,11 @@
    CSS Reset, Custom Properties (Design Tokens), and Base Typography
    ========================================================================== */
 
+/* Prevent browsers from forcing dark mode */
+:root {
+  color-scheme: light only;
+}
+
 /* Google Fonts - Quicksand 400 & 700 */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
