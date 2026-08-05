@@ -7,16 +7,23 @@ import CountdownTimer from '../countdown/CountdownTimer'
 import LineupBanner from '../banner/LineupBanner'
 import CookieBanner from '../cookie/CookieBanner'
 import PageViewTracker from '../analytics/PageViewTracker'
-import { EVENT_DATE } from '../../lib/constants'
+import useSanityQuery from '../../hooks/useSanityQuery'
+
+const COUNTDOWN_QUERY = `*[_type == "siteSettings"][0]{ eventDate, countdownLabel }`
 
 function Layout() {
+  const { data } = useSanityQuery(COUNTDOWN_QUERY)
+
+  const countdownDate = data?.eventDate || null
+  const countdownLabel = data?.countdownLabel || 'Natfest 2027'
+
   return (
     <>
       <PageViewTracker />
       <SkipLink />
       <Header />
       <div className="secondary-header">
-        <CountdownTimer targetDate={EVENT_DATE} />
+        <CountdownTimer targetDate={countdownDate} label={countdownLabel} />
         {/* LineupBanner hidden until 2027 acts are added */}
         {/* <LineupBanner /> */}
       </div>
