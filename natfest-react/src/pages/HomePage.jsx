@@ -83,6 +83,14 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Gallery CTA */}
+      <section className={styles.galleryCta}>
+        <h2 className={styles.sectionHeading}>{galleryCta}</h2>
+        <Link to="/gallery" className={styles.galleryLink}>
+          View our Gallery
+        </Link>
+      </section>
+
       {/* The Reason Behind Natfest */}
       <section className={styles.storySection}>
         <h2 className={styles.sectionHeading}>{storyHeading}</h2>
@@ -121,14 +129,6 @@ function HomePage() {
         <p className={styles.storyEmoji} aria-hidden="true">
           ❤️💛🩷💚🧡💙🩵
         </p>
-      </section>
-
-      {/* Gallery CTA */}
-      <section className={styles.galleryCta}>
-        <h2 className={styles.sectionHeading}>{galleryCta}</h2>
-        <Link to="/gallery" className={styles.galleryLink}>
-          View our Gallery
-        </Link>
       </section>
 
       {/* Our History */}

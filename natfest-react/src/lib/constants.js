@@ -2,8 +2,8 @@
  * Site-wide constants for Natfest.
  */
 
-/** Target event date for the countdown timer (ISO 8601) */
-export const EVENT_DATE = '2025-07-19T12:00:00';
+/** Target event date for the countdown timer (ISO 8601, UK midday BST) */
+export const EVENT_DATE = '2027-07-03T11:00:00Z';
 
 /** Site metadata */
 export const SITE_META = {
