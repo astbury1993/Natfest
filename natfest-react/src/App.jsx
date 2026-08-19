@@ -14,6 +14,7 @@ const FaqsPage = lazy(() => import('./pages/FaqsPage'))
 const PartnersPage = lazy(() => import('./pages/PartnersPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
 const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
 
 function PageSuspense({ children }) {
   return (
@@ -40,6 +41,7 @@ function App() {
         { path: 'partners', element: <ErrorBoundary><PageSuspense><PartnersPage /></PageSuspense></ErrorBoundary> },
         { path: 'privacy', element: <ErrorBoundary><PageSuspense><PrivacyPolicyPage /></PageSuspense></ErrorBoundary> },
         { path: 'cookies', element: <ErrorBoundary><PageSuspense><CookiePolicyPage /></PageSuspense></ErrorBoundary> },
+        { path: 'contact', element: <ErrorBoundary><PageSuspense><ContactPage /></PageSuspense></ErrorBoundary> },
       ],
     },
   ]), [])

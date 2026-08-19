@@ -129,6 +129,11 @@ function HomePage() {
         <p className={styles.storyEmoji} aria-hidden="true">
           ❤️💛🩷💚🧡💙🩵
         </p>
+        <div className={styles.getInTouchWrapper}>
+          <Link to="/contact" className={styles.getInTouchLink}>
+            Get in touch
+          </Link>
+        </div>
       </section>
 
       {/* Our History */}

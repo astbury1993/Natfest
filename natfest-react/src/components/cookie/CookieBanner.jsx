@@ -30,6 +30,9 @@ function CookieBanner() {
           This site uses cookies for analytics to help us understand how visitors
           interact with our content. No personal data is sold or shared with
           third parties. You can accept or reject non-essential cookies below.
+          See our{' '}
+          <a href="/cookies" className={styles.policyLink}>Cookie Policy</a>{' '}
+          for more details.
         </p>
         <div className={styles.actions}>
           <button

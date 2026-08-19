@@ -1,19 +1,38 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from '../styles/PrivacyPolicyPage.module.css'
 
 function PrivacyPolicyPage() {
   return (
     <div className={styles.page}>
       <h1 className={styles.heading}>Privacy Policy</h1>
-      <p className={styles.lastUpdated}>Last updated: 24/09/2025</p>
+      <p className={styles.lastUpdated}>Last updated: 21/07/2026</p>
 
       <div className={styles.content}>
         <section className={styles.section}>
-          <h2 className={styles.sectionHeading}>No Personal Data Collection</h2>
+          <h2 className={styles.sectionHeading}>What Data We Collect</h2>
           <p>
-            This website does not collect, store, or process any personal data from
-            its visitors. We do not use contact forms, user accounts, or any other
-            mechanism that would require you to provide personal information.
+            This website does not require you to create an account or log in.
+            The only personal data we collect is information you voluntarily
+            provide through our{' '}
+            <Link to="/contact" className={styles.contactLink}>
+              contact form
+            </Link>
+            : your name, email address, and message content.
+          </p>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionHeading}>How We Use Your Data</h2>
+          <p>
+            Information submitted through the contact form is used solely to
+            respond to your enquiry. Your data is sent to our form provider
+            (Formspree) and forwarded to us via email. We do not sell, share,
+            or use your personal data for marketing purposes.
+          </p>
+          <p>
+            Contact form submissions are retained only for as long as needed to
+            respond to your enquiry and are not added to any mailing list.
           </p>
         </section>
 
@@ -24,6 +43,21 @@ function PrivacyPolicyPage() {
             explicit consent via our cookie banner. If you have not accepted cookies,
             no non-essential cookies are placed on your device. A preference cookie
             is stored to remember your choice for up to 12 months.
+          </p>
+          <p>
+            For full details of cookies used, see our{' '}
+            <Link to="/cookies" className={styles.contactLink}>
+              Cookie Policy
+            </Link>.
+          </p>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionHeading}>Your Rights</h2>
+          <p>
+            Under UK GDPR, you have the right to request access to, correction of,
+            or deletion of any personal data we hold about you. To exercise these
+            rights, please contact us using the details below.
           </p>
         </section>
 
@@ -41,18 +75,21 @@ function PrivacyPolicyPage() {
           <h2 className={styles.sectionHeading}>Changes to This Policy</h2>
           <p>
             We may update this Privacy Policy from time to time. Any changes will be
-            posted on this page with an updated revision date. We encourage you to
-            review this policy periodically.
+            posted on this page with an updated revision date.
           </p>
         </section>
 
         <section className={styles.section}>
           <h2 className={styles.sectionHeading}>Contact</h2>
           <p>
-            If you have any questions about this Privacy Policy, please contact us
-            via our social media channels on{' '}
+            If you have any questions about this Privacy Policy or wish to
+            exercise your data rights, please{' '}
+            <Link to="/contact" className={styles.contactLink}>
+              get in touch
+            </Link>{' '}
+            or contact us via{' '}
             <a
-              href="https://www.instagram.com/Natfest2026"
+              href="https://www.instagram.com/natfestmusic"
               className={styles.contactLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -61,7 +98,7 @@ function PrivacyPolicyPage() {
             </a>{' '}
             or{' '}
             <a
-              href="https://www.facebook.com/groups/936096755035843"
+              href="https://www.facebook.com/profile.php?id=61593031510256"
               className={styles.contactLink}
               target="_blank"
               rel="noopener noreferrer"
