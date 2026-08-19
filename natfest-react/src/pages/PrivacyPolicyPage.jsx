@@ -89,7 +89,7 @@ function PrivacyPolicyPage() {
             </Link>{' '}
             or contact us via{' '}
             <a
-              href="https://www.instagram.com/natfestmusic"
+              href="https://www.instagram.com/Natfestuk"
               className={styles.contactLink}
               target="_blank"
               rel="noopener noreferrer"

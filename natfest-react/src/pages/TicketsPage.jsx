@@ -37,7 +37,7 @@ function TicketsPage() {
     { label: 'Under 5s', price: 'FREE' },
   ]
   const socialLinks = data?.socialLinks || [
-    { platform: 'Instagram', url: 'https://www.instagram.com/Natfest2026' },
+    { platform: 'Instagram', url: 'https://www.instagram.com/Natfestuk' },
     { platform: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61593031510256' },
   ]
   const notice = data?.notice || 'This is an invite-only event. No tickets available on the gate.'
