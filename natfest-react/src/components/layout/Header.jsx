@@ -43,7 +43,7 @@ function Header() {
             </svg>
           </a>
           <a
-            href="https://www.instagram.com/natfestmusic"
+            href="https://www.instagram.com/Natfestuk"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
