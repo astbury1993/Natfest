@@ -75,6 +75,34 @@
   margin-top: var(--space-md);
 }
 
+.getInTouchWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+.getInTouchLink {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  transition: background-color var(--transition-fast);
+}
+
+.getInTouchLink:hover {
+  background-color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.getInTouchLink:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
 /* --- Gallery CTA Section --- */
 .galleryCta {
   text-align: center;

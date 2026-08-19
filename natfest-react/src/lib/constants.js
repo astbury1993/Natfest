@@ -22,4 +22,5 @@ export const NAV_LINKS = [
   { path: '/tickets', label: 'Tickets' },
   { path: '/faqs', label: 'FAQs' },
   { path: '/partners', label: 'Our Partners' },
+  { path: '/contact', label: 'Contact' },
 ];

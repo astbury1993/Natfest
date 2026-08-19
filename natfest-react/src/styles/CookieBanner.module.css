@@ -51,6 +51,11 @@
   margin: 0;
 }
 
+.policyLink {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .actions {
   display: flex;
   gap: var(--space-md);

@@ -30,7 +30,7 @@ function Footer() {
             </li>
             <li>
               <a
-                href="https://www.facebook.com/natfestmusic"
+                href="https://www.facebook.com/profile.php?id=61593031510256"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.link}
