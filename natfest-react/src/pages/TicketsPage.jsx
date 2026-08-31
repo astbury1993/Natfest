@@ -5,26 +5,40 @@ import styles from '../styles/TicketsPage.module.css'
 const URL_REGEX = /(https?:\/\/[^\s]+)/g
 
 /**
- * Turns any plain URLs in a string into clickable links.
+ * Turns any plain URLs in a string into clickable links,
+ * and preserves line breaks entered in the CMS.
  */
 function autoLink(text) {
   if (!text) return text
-  const parts = text.split(URL_REGEX)
-  return parts.map((part, i) => {
-    if (URL_REGEX.test(part)) {
-      return (
-        <a
-          key={i}
-          href={part}
-          className={styles.inlineLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {part}
-        </a>
-      )
-    }
-    return part
+
+  // Split into lines first, then process URLs within each line
+  const lines = text.split('\n')
+
+  return lines.map((line, lineIndex) => {
+    const parts = line.split(URL_REGEX).map((part, i) => {
+      if (/^https?:\/\//.test(part)) {
+        return (
+          <a
+            key={`${lineIndex}-${i}`}
+            href={part}
+            className={styles.inlineLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {part}
+          </a>
+        )
+      }
+      return part
+    })
+
+    // Skip empty lines but preserve the break
+    return (
+      <span key={lineIndex}>
+        {parts}
+        {lineIndex < lines.length - 1 && <br />}
+      </span>
+    )
   })
 }
 
