@@ -18,14 +18,68 @@ const HOME_QUERY = `*[_type == "homePage"][0]{
 }`
 
 /**
- * Renders Sanity block content as paragraphs.
+ * Renders Sanity block content as paragraphs, supporting link annotations
+ * and auto-linking plain URLs.
  */
+const URL_REGEX = /(https?:\/\/[^\s]+)/g
+
+function renderText(text, key) {
+  // Split text on URLs and turn any URL into a clickable link
+  const parts = text.split(URL_REGEX)
+  return parts.map((part, i) => {
+    if (URL_REGEX.test(part)) {
+      return (
+        <a
+          key={`${key}-${i}`}
+          href={part}
+          className={styles.inlineLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {part}
+        </a>
+      )
+    }
+    return part
+  })
+}
+
 function renderBlocks(blocks) {
   if (!blocks || !Array.isArray(blocks)) return null
   return blocks.map((block, index) => {
     if (block._type === 'block' && block.children) {
-      const text = block.children.map((child) => child.text || '').join('')
-      return <p key={block._key || index} className={styles.storyParagraph}>{text}</p>
+      const markDefs = block.markDefs || []
+
+      const content = block.children.map((child, childIndex) => {
+        const childKey = child._key || `${block._key || index}-${childIndex}`
+        // Check if this span has a link mark
+        const linkMark = (child.marks || [])
+          .map((markKey) => markDefs.find((def) => def._key === markKey))
+          .find((def) => def && def._type === 'link')
+
+        if (linkMark && linkMark.href) {
+          return (
+            <a
+              key={childKey}
+              href={linkMark.href}
+              className={styles.inlineLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {child.text}
+            </a>
+          )
+        }
+
+        // No link mark — render text, auto-linking any plain URLs
+        return <span key={childKey}>{renderText(child.text || '', childKey)}</span>
+      })
+
+      return (
+        <p key={block._key || index} className={styles.storyParagraph}>
+          {content}
+        </p>
+      )
     }
     return null
   })

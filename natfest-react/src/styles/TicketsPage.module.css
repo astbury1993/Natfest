@@ -29,6 +29,16 @@
   text-align: center;
 }
 
+.inlineLink {
+  color: var(--color-primary);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.inlineLink:hover {
+  color: var(--color-primary-dark);
+}
+
 .details {
   margin-bottom: var(--space-lg);
 }
