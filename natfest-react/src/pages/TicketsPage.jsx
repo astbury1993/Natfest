@@ -2,6 +2,32 @@ import React from 'react'
 import useSanityQuery from '../hooks/useSanityQuery'
 import styles from '../styles/TicketsPage.module.css'
 
+const URL_REGEX = /(https?:\/\/[^\s]+)/g
+
+/**
+ * Turns any plain URLs in a string into clickable links.
+ */
+function autoLink(text) {
+  if (!text) return text
+  const parts = text.split(URL_REGEX)
+  return parts.map((part, i) => {
+    if (URL_REGEX.test(part)) {
+      return (
+        <a
+          key={i}
+          href={part}
+          className={styles.inlineLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {part}
+        </a>
+      )
+    }
+    return part
+  })
+}
+
 const TICKETS_QUERY = `*[_type == "ticketsPage"][0]{
   heading,
   announcement,
@@ -47,7 +73,7 @@ function TicketsPage() {
       <h1 className={styles.heading}>{heading}</h1>
 
       <div className={styles.card}>
-        <p className={styles.announcement}>{announcement}</p>
+        <p className={styles.announcement}>{autoLink(announcement)}</p>
 
         <div className={styles.details}>
           <p><strong>Date:</strong> {eventDate}</p>
@@ -93,7 +119,7 @@ function TicketsPage() {
           </div>
         </div>
 
-        <p className={styles.notice}>{notice}</p>
+        <p className={styles.notice}>{autoLink(notice)}</p>
       </div>
     </div>
   )

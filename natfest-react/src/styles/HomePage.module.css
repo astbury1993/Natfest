@@ -69,6 +69,16 @@
   margin-bottom: var(--space-md);
 }
 
+.inlineLink {
+  color: var(--color-primary);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.inlineLink:hover {
+  color: var(--color-primary-dark);
+}
+
 .storyEmoji {
   font-size: var(--font-size-lg);
   text-align: center;
