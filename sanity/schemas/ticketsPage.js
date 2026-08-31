@@ -12,7 +12,9 @@ export default {
     {
       name: 'announcement',
       title: 'Announcement Text',
-      type: 'string',
+      type: 'text',
+      rows: 3,
+      description: 'Press Enter to split text onto a new line.',
     },
     {
       name: 'eventDate',
