@@ -17,7 +17,7 @@ const CLOUDINARY_API_SECRET = 'wT3-bOWcN7wammPTdFuBbW9Rrz8'; // From Cloudinary 
 
 const SANITY_PROJECT_ID = 'v3uvil06';
 const SANITY_DATASET = 'production';
-const SANITY_TOKEN = 'skYADdMLrJUNrloSGG6OVEFuHmcc0GOscJsJTFt4iS85EbpQS3b7GBcdKJoKcKZA5NhUgsCB5wnPtVdyteUcSYCrknSg8bfYxhhVwk7RIGe64fSlGRsyEc3kZ16EZ6I57VTZHf8V7tNYiBJC0JV9KWeegRU4EWIiUQqwzbHTVgb5QgKG2Y9L'; // Generate at sanity.io/manage → API → Tokens (Editor role)
+const SANITY_TOKEN = process.env.SANITY_WRITE_TOKEN; // Generate at sanity.io/manage → API → Tokens (Editor role)
 
 // ─── SETUP ────────────────────────────────────────────────────────────────────
 

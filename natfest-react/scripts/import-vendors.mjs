@@ -2,7 +2,7 @@
  * Import vendors from old static site into Sanity.
  * Uploads vendor images to Sanity assets and creates vendor documents.
  *
- * Usage: node scripts/import-vendors.mjs
+ * Usage: SANITY_WRITE_TOKEN=<editor token> node scripts/import-vendors.mjs
  */
 
 import { createClient } from '@sanity/client';
@@ -12,7 +12,7 @@ import path from 'path';
 const client = createClient({
   projectId: 'v3uvil06',
   dataset: 'production',
-  token: 'skYADdMLrJUNrloSGG6OVEFuHmcc0GOscJsJTFt4iS85EbpQS3b7GBcdKJoKcKZA5NhUgsCB5wnPtVdyteUcSYCrknSg8bfYxhhVwk7RIGe64fSlGRsyEc3kZ16EZ6I57VTZHf8V7tNYiBJC0JV9KWeegRU4EWIiUQqwzbHTVgb5QgKG2Y9L',
+  token: process.env.SANITY_WRITE_TOKEN,
   useCdn: false,
   apiVersion: '2024-01-01',
 });

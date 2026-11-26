@@ -2,7 +2,7 @@
  * Import 2026 gallery images from Cloudinary into Sanity.
  * Fetches from 2026/Acts and 2026/Crowd folders, setting categories accordingly.
  *
- * Usage: node scripts/import-gallery-2026.mjs
+ * Usage: SANITY_WRITE_TOKEN=<editor token> node scripts/import-gallery-2026.mjs
  */
 
 import { createClient } from '@sanity/client';
@@ -14,7 +14,7 @@ const CLOUDINARY_API_SECRET = 'wT3-bOWcN7wammPTdFuBbW9Rrz8';
 const sanity = createClient({
   projectId: 'v3uvil06',
   dataset: 'production',
-  token: 'skYADdMLrJUNrloSGG6OVEFuHmcc0GOscJsJTFt4iS85EbpQS3b7GBcdKJoKcKZA5NhUgsCB5wnPtVdyteUcSYCrknSg8bfYxhhVwk7RIGe64fSlGRsyEc3kZ16EZ6I57VTZHf8V7tNYiBJC0JV9KWeegRU4EWIiUQqwzbHTVgb5QgKG2Y9L',
+  token: process.env.SANITY_WRITE_TOKEN,
   useCdn: false,
   apiVersion: '2024-01-01',
 });
