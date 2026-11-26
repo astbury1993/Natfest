@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import useSanityQuery from '../hooks/useSanityQuery'
 import styles from '../styles/TicketsPage.module.css'
 
@@ -42,9 +43,61 @@ function autoLink(text) {
   })
 }
 
+/** Only allow site paths, http(s), mailto: and tel: links from the CMS */
+function safeHref(href) {
+  if (typeof href !== 'string') return null
+  if (href.startsWith('/') && !href.startsWith('//')) return href
+  if (/^(https?:\/\/|mailto:|tel:)/i.test(href)) return href
+  return null
+}
+
+/**
+ * Renders the rich "Announcement Text" (Sanity block content) as lines with
+ * line breaks, supporting link annotations, bold/italic, and auto-linking plain URLs.
+ */
+function renderAnnouncementBlocks(blocks) {
+  const lines = blocks.filter((block) => block._type === 'block')
+  return lines.map((block, blockIndex) => {
+    const markDefs = block.markDefs || []
+    const children = (block.children || []).map((child, childIndex) => {
+      const key = child._key || `${blockIndex}-${childIndex}`
+      const marks = child.marks || []
+      const text = child.text || ''
+      const link = marks
+        .map((markKey) => markDefs.find((def) => def._key === markKey))
+        .find((def) => def && def._type === 'link')
+      const href = safeHref(link?.href)
+
+      // Text inside a link isn't auto-linked again; other text auto-links plain URLs
+      let node = href ? text : autoLink(text)
+      if (marks.includes('em')) node = <em>{node}</em>
+      if (marks.includes('strong')) node = <strong>{node}</strong>
+
+      if (href?.startsWith('/')) {
+        return <Link key={key} to={href} className={styles.inlineLink}>{node}</Link>
+      }
+      if (href) {
+        return (
+          <a key={key} href={href} className={styles.inlineLink} target="_blank" rel="noopener noreferrer">
+            {node}
+          </a>
+        )
+      }
+      return <React.Fragment key={key}>{node}</React.Fragment>
+    })
+    return (
+      <span key={block._key || blockIndex}>
+        {children}
+        {blockIndex < lines.length - 1 && <br />}
+      </span>
+    )
+  })
+}
+
 const TICKETS_QUERY = `*[_type == "ticketsPage"][0]{
   heading,
   announcement,
+  announcementRich,
   eventDate,
   eventTime,
   eventLocation,
@@ -87,7 +140,11 @@ function TicketsPage() {
       <h1 className={styles.heading}>{heading}</h1>
 
       <div className={styles.card}>
-        <p className={styles.announcement}>{autoLink(announcement)}</p>
+        <p className={styles.announcement}>
+          {data?.announcementRich?.length
+            ? renderAnnouncementBlocks(data.announcementRich)
+            : autoLink(announcement)}
+        </p>
 
         <div className={styles.details}>
           <p><strong>Date:</strong> {eventDate}</p>
