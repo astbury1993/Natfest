@@ -1,0 +1,12 @@
+/* ==========================================================================
+   SiteBanner — CMS-managed announcement strip
+   ========================================================================== */
+
+.banner {
+  background-color: #000000;
+  color: var(--color-secondary);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  padding: var(--space-sm) var(--space-md);
+}

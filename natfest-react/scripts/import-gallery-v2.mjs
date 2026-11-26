@@ -3,7 +3,7 @@
  * Images in the "2025/Acts" folder get category "Acts".
  * Images in the "2025/Crowd" folder get category "Crowd".
  *
- * Usage: node scripts/import-gallery-v2.mjs
+ * Usage: SANITY_WRITE_TOKEN=<editor token> node scripts/import-gallery-v2.mjs
  */
 
 import { createClient } from '@sanity/client';
@@ -14,7 +14,7 @@ const CLOUDINARY_API_SECRET = 'wT3-bOWcN7wammPTdFuBbW9Rrz8';
 
 const SANITY_PROJECT_ID = 'v3uvil06';
 const SANITY_DATASET = 'production';
-const SANITY_TOKEN = 'skYADdMLrJUNrloSGG6OVEFuHmcc0GOscJsJTFt4iS85EbpQS3b7GBcdKJoKcKZA5NhUgsCB5wnPtVdyteUcSYCrknSg8bfYxhhVwk7RIGe64fSlGRsyEc3kZ16EZ6I57VTZHf8V7tNYiBJC0JV9KWeegRU4EWIiUQqwzbHTVgb5QgKG2Y9L';
+const SANITY_TOKEN = process.env.SANITY_WRITE_TOKEN;
 
 const sanity = createClient({
   projectId: SANITY_PROJECT_ID,
