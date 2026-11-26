@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
 import useSanityQuery from '../hooks/useSanityQuery'
+import PromoCard from '../components/banner/PromoCard'
 import styles from '../styles/HomePage.module.css'
 
 const HOME_QUERY = `*[_type == "homePage"][0]{
@@ -87,11 +88,26 @@ function renderBlocks(blocks) {
 
 function HomePage() {
   const { data, loading } = useSanityQuery(HOME_QUERY)
+  // Site Settings are fetched once in Layout and passed down via the router outlet
+  const siteSettings = useOutletContext()?.siteSettings
+
+  const promoCard = (
+    <PromoCard
+      enabled={siteSettings?.bannerEnabled}
+      endDate={siteSettings?.bannerEndDate}
+      eyebrow={siteSettings?.promoEyebrow}
+      heading={siteSettings?.promoHeading}
+      text={siteSettings?.promoText}
+      buttonLabel={siteSettings?.promoButtonLabel}
+      buttonLink={siteSettings?.promoButtonLink}
+    />
+  )
 
   // Show loading state briefly, then render with CMS data or fallbacks
   if (loading) {
     return (
       <div className={styles.page}>
+        {promoCard}
         <section className={styles.hero}>
           <p className={styles.loadingText}>Loading...</p>
         </section>
@@ -111,6 +127,8 @@ function HomePage() {
 
   return (
     <div className={styles.page}>
+      {/* Promo card (Site Settings → Site Banner), directly below the countdown */}
+      {promoCard}
       {/* Hero Section */}
       <section className={styles.hero}>
         <h2 className={styles.heroHeading}>{heroHeading}</h2>

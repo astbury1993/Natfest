@@ -5,4 +5,5 @@ export default defineCliConfig({
     projectId: 'v3uvil06',
     dataset: 'production',
   },
+  studioHost: 'natfest',
 })
