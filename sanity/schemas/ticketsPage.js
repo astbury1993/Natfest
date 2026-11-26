@@ -10,11 +10,51 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'announcement',
+      name: 'announcementRich',
       title: 'Announcement Text',
+      type: 'array',
+      description:
+        'Press Enter for a new line. To add a link, highlight the text and click the link icon in the toolbar.',
+      of: [
+        {
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+          marks: {
+            decorators: [
+              { title: 'Bold', value: 'strong' },
+              { title: 'Italic', value: 'em' },
+            ],
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'URL',
+                    description: 'A full link (https://…), a site page (/tickets), mailto: or tel:',
+                    validation: (Rule) =>
+                      Rule.required().uri({ allowRelative: true, scheme: ['http', 'https', 'mailto', 'tel'] }),
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      // Replaced by announcementRich (supports links). Kept so the site can fall back to it,
+      // and hidden once the new field has content.
+      name: 'announcement',
+      title: 'Announcement Text (old, plain text)',
       type: 'text',
       rows: 3,
-      description: 'Press Enter to split text onto a new line.',
+      description: 'Replaced by "Announcement Text" above. Only used if that field is empty.',
+      hidden: ({ document }) => Boolean(document?.announcementRich?.length),
     },
     {
       name: 'eventDate',
